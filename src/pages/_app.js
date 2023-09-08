@@ -1,6 +1,6 @@
 import '@/styles/globals.css';
 import { Inter } from 'next/font/google';
-import { AppContextProvider } from '@/contexts/AppContext';
+import { AppContextProvider } from '@/contexts/AppContext'; //1. importamos appcontext
 
 const inter = Inter({ subsets: ['latin'] });
 

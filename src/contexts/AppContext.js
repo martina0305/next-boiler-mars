@@ -1,3 +1,5 @@
+//componente bonobon, podemos almacenar informacion en un solo componente y desde los otros componentes podemos acceder a la información que tiene uno solo.
+
 import {
   createContext,
   useState,
@@ -9,7 +11,7 @@ import axios from 'axios';
 
 const AppContext = createContext();
 
-export const AppContextProvider = ({ children }) => {
+export const AppContextProvider = ({ children }) => { //papelito amarillo de bonobon
   const [shows, setShows] = useState([]);
   const [show, setShow] = useState({});
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ export const AppContextProvider = ({ children }) => {
     setLoading(true);
     try {
       const showsReq = await axios.get(
-        `https://api.tvmaze.com/search/shows?q=batman`
+        `https://api.tvmaze.com/shows`
       );
       setShows(showsReq.data);
       setLoading(false);

@@ -1,12 +1,16 @@
-import Link from 'next/link';
+import Image from 'next/image';
+import ButtonLink from './ButtonLink';
 
 const ShowCard = ({ actualShow }) => {
-  const { show } = actualShow;
-  const { name, id } = show;
+  const { name, id, image, premiered } = actualShow;
   return (
-    <div className='show_container'>
-      <h2>{name}</h2>
-      <Link href={`/show/${id}`}>View Show</Link>
+    <div className='w-52 size_container'>
+      <div className='mb-2 h-auto'>
+        <Image src={image?.original} width={300} height={400} alt={name} />
+      </div>
+      <h3>{name}</h3>
+      <h2>{premiered}</h2>
+      <ButtonLink id={id} />
     </div>
   );
 };

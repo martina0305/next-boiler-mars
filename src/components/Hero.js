@@ -1,11 +1,12 @@
-import React from 'react';
-
-const Hero = () => {
+{/*const Hero = () => {
   return (
-    <div className='hero flex justify-center items-center w-full h-52 bg-[#ff0000] md:bg-[#00ff00] lg:bg-[#0000ff]'>
-      Hero
+    <div>
+      <div className='bg-[rgba(0,0,0,.6)] w-full h-full'>
+        <h1 className=' text-7xl'>Welcome to the machine</h1>
+      </div>
     </div>
   );
 };
 
-export default Hero;
+export default Hero; */}
+

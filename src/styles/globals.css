@@ -25,3 +25,20 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+h2{
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 40px;
+}
+
+h3{
+  font-size: x-large;
+  text-align: center;
+  line-height: 30px;
+}
+
+.size_container{
+  width: 210px;
+  height: 357px;
+}
