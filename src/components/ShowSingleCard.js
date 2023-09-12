@@ -3,11 +3,11 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 //continue with filter 2023
-const checkYear = () => {
+{/*const checkYear = () => {
   const [year, setYear] = useState({});
 }
 
-const yearShow = show.premiered;
+const yearShow = show.premiered;*/}
 
 
 const ShowSingleCard = ({ show }) => {
