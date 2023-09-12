@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <>
-      <div className='h-auto m-2'>
+      <div className='h-screen m-2'>
         <SearchNavbar />
         <HomeContainer/>
         <Footer />

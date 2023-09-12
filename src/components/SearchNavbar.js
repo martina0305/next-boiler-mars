@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 
 const SearchNavbar = () => {
   return (
-    <div className='col-span-full rounded flex justify-between items-center h-14 bg-neutral-900/80 px-5'>
+    <div className='col-span-full rounded flex justify-between items-center h-14 bg-neutral-900/80 px-5 mb-6'>
       <div className=' w-32 h-auto sm:w-36 md:w-[300px]'>
         <Image src={`/assets/plex_logo.png`} width={62} height={28} alt={`Logo`} />
       </div>
