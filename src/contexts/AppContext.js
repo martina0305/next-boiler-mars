@@ -16,6 +16,7 @@ export const AppContextProvider = ({ children }) => { //papelito amarillo de bon
   const [show, setShow] = useState({});
   const [loading, setLoading] = useState(true);
   const [showLoading, setShowLoading] = useState(true);
+  {/**const [crew, setCrew] = useState([]); */}
 
   const getShows = useCallback(async () => {
     setLoading(true);
@@ -45,6 +46,15 @@ export const AppContextProvider = ({ children }) => { //papelito amarillo de bon
       console.log('ERRORRR NO EXISTE SHOW');
     }
   }, []);
+
+  {/**const getCrew = useCallback ( async (show) =>{
+
+    setCrew(true);
+    try{
+      const crew = await axios.get(`https://api.tvmaze.com/shows/${id}/crew`);
+    }
+
+  }) */}
 
 
   return (

@@ -8,12 +8,12 @@ const SearchNavbar = () => {
       <div className=' w-32 h-auto sm:w-36 md:w-[300px]'>
         <Image src={`/assets/plex_logo.png`} width={62} height={28} alt={`Logo`} />
       </div>
-      <nav className='hidden sm:block'>
+     {/*<nav className='hidden sm:block'>
         <ul className='flex justify-end items-center gap-4'>
           <li>About</li>
           <li>Contact</li>
         </ul>
-      </nav>
+      </nav>*/}
       <div className='sm:hidden'>
         <RxHamburgerMenu size={20} color={`#ffffff`} />
       </div>
