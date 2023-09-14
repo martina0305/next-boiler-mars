@@ -50,13 +50,14 @@ const ShowSingleCard = ({ show }) => {
             </div>
           </div>
           <div className='inline-flex w-full gap-2 mb-2 text-zinc-300 text-sm'>
-            <h5 className='font-bold'>Weekly:</h5>
+            <h5 className='font-bold'>Weekly Schedule:</h5>
             <p>{show.schedule.days}</p>
             <p>{show.schedule.time +` hs`}</p>
           </div>
-            <p className='mb-8 text-zinc-300 text-sm'>{show.genres}</p>
+            <p className='mb-8 text-zinc-300 text-sm'>{show.genres.join(', ')}</p>
           <div className='mb-8 text-white text-base'>
-            <p>{show.summary}</p>
+
+            <div dangerouslySetInnerHTML = {{__html:show.summary}}></div>
           </div>
           <div className='flex gap-2 text-white text-sm'>
             <h4>Official Site:</h4><a className="underline" href={show.officialSite}>{show.officialSite}</a>
