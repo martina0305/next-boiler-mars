@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import Image from 'next/image';
 import {FiStar} from 'react-icons/fi';
 
@@ -19,12 +18,11 @@ const filteredMovies = show.filter((serie) => {
 console.log(filteredMovies);*/}
 
 
-const ShowSingleCard = ({ show }) => {
-
+const ShowSingleCard = ({ show, crew, crewLoading, cast, castLoading, season, seasonLoading}) => {
   const premieredYear = show.premiered.split('-')[0];
   
   return (
-    <div className='grid grid-cols-12 gap-8 h-screen bg-gradient-to-tr from-red-950 to-stone-700 p-2 w-full'>
+    <div className='grid grid-cols-12 gap-8 h-auto bg-gradient-to-tr from-red-950 to-stone-700 p-2 w-full'>
         <div className='col-start-2 col-end-5 rounded'>
         {show.image && (
           <Image
@@ -49,28 +47,48 @@ const ShowSingleCard = ({ show }) => {
             <p>{show.rating.average}</p>
             </div>
           </div>
-          <div className='inline-flex w-full gap-2 mb-2 text-zinc-300 text-sm'>
+          <div>
+            <p className='mb-2 text-zinc-300 text-sm'>{show.genres.join(', ')}</p>
+          </div>
+          <div className='inline-flex w-full gap-2 mb-8 text-zinc-300 text-sm'>
             <h5 className='font-bold'>Weekly Schedule:</h5>
             <p>{show.schedule.days}</p>
             <p>{show.schedule.time +` hs`}</p>
           </div>
-            <p className='mb-8 text-zinc-300 text-sm'>{show.genres.join(', ')}</p>
-          <div className='mb-8 text-white text-base'>
-
+          <div className='mb-8 text-white text-base w-full'>
             <div dangerouslySetInnerHTML = {{__html:show.summary}}></div>
           </div>
-          <div className='flex gap-2 text-white text-sm'>
+          <div className='flex text-white text-sm w-full'>
             <h4>Official Site:</h4><a className="underline" href={show.officialSite}>{show.officialSite}</a>
           </div>
+          <div className='flex gap-2 text-white text-sm'>
+            <h5>Created by:</h5>
+          {!crewLoading && <div>
+            {crew.map((item, index) => <p key={index}>{item.person.name}</p>)}
+            </div>}
+          </div>
         </div>
-        <section className='col-start-2 w-full text-white text-lg font-bold'>
-          <h2>Season</h2>
+        <section className='col-start-2 col-end-13 mb-16'>
+          <h2 className='mb-0 text-left font-semibold text-white text-2xl'>Seasons</h2>
+          {!seasonLoading && <div className='flex gap-8 mt-6'>
+            {season.map((item, index) => <div key={index} className='flex flex-col gap-2'> 
+              <div className='hover:opacity-50'>{item.image && (<Image className='object-cover rounded-lg' src={item.image?.original} width={300} height={400}/>)}</div>
+              <h4 className='text-sm text-white font-normal'>Season {item.number}</h4>
+              <p className='text-sm text-stone-400 font-normal'>{item.episodeOrder} episodes</p>
+              </div>)}
+            </div>}
         </section>
-        <section className='col-start-2 w-full text-white text-lg font-bold'>
-          <h2>Cast</h2>
+        <section className='col-start-2 col-end-13'>
+          <h2 className='mb-0 text-left font-semibold text-white text-2xl'>Cast & Crew</h2>
+          {!castLoading && <div className='flex gap-8 mt-6 overflow-x-auto'>
+            {cast.map((item, index) => <div key={index} className='flex flex-col gap-2 text-center col-span-2'> 
+              <div className='w-52'>{item.person.image && (<Image className='object-cover rounded-full h-52' src={item.person.image?.original} width={300} height={400} alt={item.person.name}/>)}</div>
+              <h4 className='text-sm text-stone-300 font-normal'>{item.character.name}</h4>
+              <p className='text-sm text-stone-400 font-normal'>{item.person.name}</p>
+              </div>)}
+            </div>}
         </section>
-    </div>
-    
+    </div>    
   );
 };
 
