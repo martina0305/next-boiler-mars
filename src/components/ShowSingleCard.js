@@ -1,29 +1,13 @@
 import Image from 'next/image';
 import {FiStar} from 'react-icons/fi';
 
-//continue with filter 2023
-{/*const checkYear = () => {
-  const [year, setYear] = useState({});
-}
-const yearShow = show.premiered;
-const dateBase = dayjs('2022-01-01');
-console.log(dateBase);
-
-const filteredMovies = show.filter((serie) => {
-  const releaseDate = dayjs(serie.releaseDate);
-  return releaseDate.isAfter(dateBase);
-});
-
-// Now, `filteredMovies` contains only movies released since January 1, 2022
-console.log(filteredMovies);*/}
-
 
 const ShowSingleCard = ({ show, crew, crewLoading, cast, castLoading, season, seasonLoading}) => {
   const premieredYear = show.premiered.split('-')[0];
   
   return (
-    <div className='grid grid-cols-12 gap-8 h-auto bg-gradient-to-tr from-red-950 to-stone-700 p-2 w-full'>
-        <div className='col-start-2 col-end-5 rounded mb-16'>
+    <div className='grid h-auto bg-gradient-to-tr from-red-950 to-stone-700 p-2 w-full grid-cols-3 gap-8 my-2 md:grid-cols-8 sm:grid-cols-4 lg:grid-cols-10 xl:grid-cols-12'>
+        <div className='grid col-start-2 col-end-5 rounded mb-16'>
         {show.image && (
           <Image
             src={show.image?.original}
@@ -34,7 +18,7 @@ const ShowSingleCard = ({ show, crew, crewLoading, cast, castLoading, season, se
           />
         )}
         </div>
-        <div className='col-start-6 col-end-12 w-full py-6'>
+        <div className='col-start-6 col-end-12 w-full py-6 md:col-end-9 sm:col-end-5 xl:col-end-11'>
           <div className='inline-flex items-center w-full mb-2'>
             <h2 className='font-bold m-0 text-white tracking-normal'>{show.name}</h2>
             <p className='font-normal pl-2 pr-2 pt-1 pb-1 bg-yellow-500 rounded ml-2 text-sm text-zinc-900'>{show.status}</p>

@@ -40,5 +40,19 @@ h3{
 
 .size_container{
   width: 210px;
-  height: 357px;
+  height: auto;
+}
+
+.height{
+  height: 300px;
+  width: 210px;
+}
+
+.none-height{
+  height:inherit;
+}
+
+#img:hover{
+  border: 1.5px solid rgb(255, 230, 0);
+  transition: .1s ease-in-out;
 }

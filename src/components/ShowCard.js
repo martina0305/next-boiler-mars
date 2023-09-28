@@ -1,18 +1,21 @@
 import Image from 'next/image';
 import ButtonLink from './ButtonLink';
+import Link from 'next/link';
 
 const ShowCard = ({ actualShow }) => {
   const { name, id, image, premiered } = actualShow;
   const premieredYear = premiered.split('-')[0];
   
   return (
-    <div className='w-52 size_container flex flex-col items-start gap-2'>
-      <div className='mb-2 h-auto'>
-        <Image src={image?.original} width={300} height={400} alt={name} className='object-cover w-full' />
+    <div className='size_container'>
+      <Link  href={`/show/${id}`} className='flex flex-col gap-2 h-auto'>
+      <div className='height'>
+        <Image src={image?.original} width={210} height={300} alt={name} className='object-cover max-w-none rounded-md none-height' id={'img'} />
       </div>
-      <h2 className='m-0 text-left text-base text-white font-bold tracking-wide'>{name}</h2>
-      <h3 className='font-normal text-base text-white tracking-wide'>{premieredYear}</h3>
-      <ButtonLink id={id} />
+      <h2 className='m-0 text-left text-sm text-white font-normal tracking-wide'>{name}</h2>
+      <h3 className='font-normal text-sm text-stone-400 tracking-wide text-left'>{premieredYear}</h3>
+      {/*<ButtonLink id={id} />*/}
+      </Link>
     </div>
   );
 };
